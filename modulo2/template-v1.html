@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <input type="text" v-on:input="alterTitle" autofocus />
+            <p>{{ titulo }}</p>
+            <p v-once>{{ funcao() }}</p>
+            <a v-bind:href="link">link</a>
+        </div>
+    </body>
+    
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                titulo: 'teste',
+                link: "https://github.com/sbaum-tecnologia/sigecor-candidatos-agnes",
+            },
+            methods: {
+                alterTitle(event) {
+                    this.titulo = event.target.value;
+                },
+
+                funcao: function() {
+                    this.titulo = 'TURURU';
+                    return this.titulo;
+                }
+               
+            },
+        });
+    </script>
+</html>
