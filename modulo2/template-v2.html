@@ -9,6 +9,7 @@
 
             <p>{{ count }}</p>
             <button v-on:click="incrementar">Somar 1</button>
+            <p v-on:mouseMove="updateNumber">Mouse: {{ x }} e {{ y }}</p>
         </div>
     </body>
     
@@ -17,11 +18,17 @@
             el: "#app",
             data: {
                 count: 0,
+                x: 0,
+                y: 0,
             },
             methods: {
                 incrementar() {
                     this.count++;
                 },
+                updateNumber(e) {
+                    this.x = e.x;
+                    this.y = e.y;
+                }
             },
         });
     </script>
